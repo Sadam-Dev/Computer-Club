@@ -1,0 +1,1 @@
+ERROR: 2024/09/07 16:02:41 users.go:40: [reposirory.GetUserByUsername] Error getting user by Username: record not found

@@ -1,6 +1,14 @@
 package db
 
-//func Migrate() error {
-//	err := db.Conn.AutoMigrate(models.User{},
-//		models.)
-//}
+import "ComputerClub/models"
+
+func Migrate() error {
+	err := GetDBConn().AutoMigrate(
+		models.User{},
+		models.Role{},
+		models.Computer{})
+	if err != nil {
+		return err
+	}
+	return nil
+}

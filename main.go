@@ -3,6 +3,8 @@ package main
 import (
 	"ComputerClub/configs"
 	"ComputerClub/db"
+	"ComputerClub/logger"
+	"ComputerClub/pkg/controllers"
 	"errors"
 	"fmt"
 	"github.com/joho/godotenv"
@@ -19,8 +21,24 @@ func main() {
 		panic(err)
 	}
 
+	err = logger.Init()
+	if err != nil {
+		panic(err)
+	}
+
 	err = db.ConnectToDB()
 	if err != nil {
 		panic(err)
 	}
+
+	err = db.Migrate()
+	if err != nil {
+		panic(err)
+	}
+
+	err = controllers.RunRoutes()
+	if err != nil {
+		panic(err)
+	}
+
 }
