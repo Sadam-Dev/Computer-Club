@@ -1,4 +1,4 @@
-package reposirory
+package repository
 
 import (
 	"ComputerClub/db"
@@ -18,7 +18,7 @@ func CreateUser(user models.User) (err error) {
 func GetAllUsers() (users []models.User, err error) {
 	err = db.GetDBConn().Find(&users).Error
 	if err != nil {
-		logger.Error.Printf("[reposirory.GetAllUsers] Error getting all users: %s\n", err.Error())
+		logger.Error.Printf("[repository.GetAllUsers] Error getting all users: %s\n", err.Error())
 		return nil, translateError(err)
 	}
 
@@ -28,7 +28,7 @@ func GetAllUsers() (users []models.User, err error) {
 func GetUserByID(id uint) (user models.User, err error) {
 	err = db.GetDBConn().Where("id = ?", id).First(&user).Error
 	if err != nil {
-		logger.Error.Printf("[reposirory.GetUserByID] Error getting user by ID: %d\n", err)
+		logger.Error.Printf("[repository.GetUserByID] Error getting user by ID: %d\n", err)
 		return user, translateError(err)
 	}
 	return user, nil
@@ -37,7 +37,7 @@ func GetUserByID(id uint) (user models.User, err error) {
 func GetUserByUsername(username string) (user models.User, err error) {
 	err = db.GetDBConn().Where("username = ?", username).First(&user).Error
 	if err != nil {
-		logger.Error.Printf("[reposirory.GetUserByUsername] Error getting user by Username: %s\n", err)
+		logger.Error.Printf("[repository.GetUserByUsername] Error getting user by Username: %s\n", err)
 		return user, translateError(err)
 	}
 
@@ -47,7 +47,7 @@ func GetUserByUsername(username string) (user models.User, err error) {
 func GetUserByUsernameAndPassword(username string, password string) (user models.User, err error) {
 	err = db.GetDBConn().Where("username = ? AND password = ?", username, password).First(&user).Error
 	if err != nil {
-		logger.Error.Printf("[reposirory.GetUserByUsernameAndPassword] Error getting user by Username and Password: %s\n", err)
+		logger.Error.Printf("[repository.GetUserByUsernameAndPassword] Error getting user by Username and Password: %s\n", err)
 		return user, translateError(err)
 	}
 

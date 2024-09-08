@@ -2,7 +2,7 @@ package service
 
 import (
 	"ComputerClub/errs"
-	"ComputerClub/pkg/reposirory"
+	"ComputerClub/pkg/repository"
 	"ComputerClub/utils"
 	"errors"
 )
@@ -10,7 +10,7 @@ import (
 func SignIn(username, password string) (accessToken string, err error) {
 	password = utils.GenerateHash(password)
 
-	user, err := reposirory.GetUserByUsernameAndPassword(username, password)
+	user, err := repository.GetUserByUsernameAndPassword(username, password)
 
 	if err != nil {
 		if errors.Is(err, errs.ErrRecordNotFound) {

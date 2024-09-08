@@ -22,7 +22,13 @@ func RunRoutes() error {
 	userG := router.Group("/users")
 	{
 		userG.GET("", GetAllUsers)
+		userG.GET("/:id", GetUserByID)
 		userG.POST("", CreateUser)
+	}
+
+	computerG := router.Group("/computers")
+	{
+		computerG.GET("/available", GetAvailableComputers)
 	}
 
 	err := router.Run(fmt.Sprintf("%s:%s", configs.AppSettings.AppParams.ServerURL, configs.AppSettings.AppParams.PortRun))

@@ -3,13 +3,13 @@ package service
 import (
 	"ComputerClub/errs"
 	"ComputerClub/models"
-	"ComputerClub/pkg/reposirory"
+	"ComputerClub/pkg/repository"
 	"ComputerClub/utils"
 	"errors"
 )
 
 func CreateUser(user models.User) error {
-	userFromDB, err := reposirory.GetUserByUsername(user.Username)
+	userFromDB, err := repository.GetUserByUsername(user.Username)
 	if err != nil && !errors.Is(err, errs.ErrRecordNotFound) {
 		return err
 	}
@@ -22,7 +22,7 @@ func CreateUser(user models.User) error {
 
 	user.Password = utils.GenerateHash(user.Password)
 
-	err = reposirory.CreateUser(user)
+	err = repository.CreateUser(user)
 	if err != nil {
 		return err
 	}
@@ -31,10 +31,19 @@ func CreateUser(user models.User) error {
 }
 
 func GetAllUsers() (users []models.User, err error) {
-	users, err = reposirory.GetAllUsers()
+	users, err = repository.GetAllUsers()
 	if err != nil {
 		return nil, err
 	}
 
 	return users, nil
+}
+
+func GetUserByID(id uint) (user models.User, err error) {
+	user, err = repository.GetUserByID(id)
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
 }

@@ -2,10 +2,12 @@ package controllers
 
 import (
 	"ComputerClub/errs"
+	"ComputerClub/logger"
 	"ComputerClub/models"
 	"ComputerClub/pkg/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
 func CreateUser(c *gin.Context) {
@@ -41,4 +43,26 @@ func GetAllUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"users": users,
 	})
+}
+
+func GetUserByID(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		logger.Error.Printf("[controllers.GetUserByID] invalid user_id path parameter: %s\n", c.Param("id"))
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "invalid id",
+		})
+		return
+	}
+
+	user, err := service.GetUserByID(uint(id))
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, user)
+
 }

@@ -1,4 +1,4 @@
-package reposirory
+package repository
 
 import (
 	"ComputerClub/errs"
