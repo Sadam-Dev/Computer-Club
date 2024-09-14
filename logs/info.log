@@ -214,3 +214,225 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2024/09/08 - 17:18:35 | 404 |            0s |       127.0.0.1 | POST     "/computers/available"
 [GIN] 2024/09/08 - 17:19:29 | 200 |      1.2173ms |       127.0.0.1 | GET      "/computers/available"
 [GIN] 2024/09/08 - 17:20:04 | 200 |         806µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/10 - 01:11:03 | 200 |       513.6µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 01:20:38 | 200 |       403.6µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 01:31:49 | 200 |       630.9µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 02:13:20 | 200 |         666µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 02:13:46 | 200 |       502.7µs |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 02:16:29 | 201 |     12.0619ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:16:39 | 200 |       772.5µs |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 02:29:20 | 201 |       930.1µs |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:29:33 | 201 |      7.3892ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:29:37 | 201 |      7.6063ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:29:42 | 201 |      6.8192ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:29:52 | 201 |      7.8261ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:29:59 | 201 |      7.6048ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:30:02 | 201 |      6.4169ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:30:06 | 201 |      7.4695ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 02:30:10 | 201 |      7.3328ms |       127.0.0.1 | POST     "/computers"
+[GIN] 2024/09/14 - 03:51:17 | 404 |            0s |       127.0.0.1 | POST     "/bookings"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 03:52:49 | 500 |     18.9452ms |       127.0.0.1 | POST     "/bookings"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 03:53:35 | 200 |     18.5633ms |       127.0.0.1 | POST     "/bookings"
+[GIN] 2024/09/14 - 03:53:54 | 200 |      1.5034ms |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 03:54:55 | 200 |      7.1634ms |       127.0.0.1 | POST     "/bookings"
+[GIN] 2024/09/14 - 03:55:04 | 200 |       940.2µs |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 03:55:20 | 200 |       195.7µs |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 04:00:37 | 200 |         735µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 07:14:56 | 200 |      8.0599ms |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 07:24:22 | 200 |      8.2566ms |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 07:26:07 | 200 |     12.5787ms |       127.0.0.1 | POST     "/bookings"
+[GIN] 2024/09/14 - 07:26:43 | 200 |      1.3795ms |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 07:27:00 | 200 |       573.2µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8181
+[GIN] 2024/09/14 - 07:56:10 | 200 |     15.5312ms |       127.0.0.1 | GET      "/users/1"
+[GIN] 2024/09/14 - 07:56:36 | 200 |       777.5µs |       127.0.0.1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 07:56:48 | 200 |       777.1µs |       127.0.0.1 | GET      "/computers/available"

@@ -6,7 +6,8 @@ func Migrate() error {
 	err := GetDBConn().AutoMigrate(
 		models.User{},
 		models.Role{},
-		models.Computer{})
+		models.Computer{},
+		models.Booking{})
 	if err != nil {
 		return err
 	}

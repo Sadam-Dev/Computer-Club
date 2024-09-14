@@ -47,3 +47,21 @@ func GetUserByID(id uint) (user models.User, err error) {
 
 	return user, nil
 }
+
+func UpdateUserByID(id uint, updateUser models.User) (user models.User, err error) {
+	user, err = repository.UpdateUserByID(id, updateUser)
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
+
+func DeleteUserByID(id uint) (user models.User, err error) {
+	user, err = repository.DeleteUserByID(id)
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
+}

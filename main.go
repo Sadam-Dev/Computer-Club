@@ -5,9 +5,11 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/pkg/controllers"
+	"ComputerClub/pkg/service"
 	"errors"
 	"fmt"
 	"github.com/joho/godotenv"
+	"time"
 )
 
 func main() {
@@ -40,5 +42,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	service.StartUpdatingComputerAvailability(1 * time.Minute)
 
 }

@@ -4,8 +4,8 @@ import "time"
 
 type Booking struct {
 	ID          uint      `json:"id" gorm:"primary_key"`
-	UserID      uint      `json:"user_id"`
-	ComputerID  uint      `json:"computer_id"`
+	UserID      uint      `json:"user_id" gorm:"not null"`
+	ComputerID  uint      `json:"computer_id" gorm:"not null"`
 	StartTime   time.Time `json:"start_time" gorm:"not null"`
 	EndTime     time.Time `json:"end_time" gorm:"not null"`
 	IsCompleted bool      `json:"is_completed" gorm:"default:false"`
