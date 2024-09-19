@@ -13,8 +13,8 @@ func CreateComputer(computer models.Computer) error {
 	return nil
 }
 
-func GetAvailableComputers() (computers []models.Computer, err error) {
-	computers, err = repository.GetAvailableComputers()
+func GetAvailableComputers(isAvailable bool) (computers []models.Computer, err error) {
+	computers, err = repository.GetAvailableComputers(isAvailable)
 	if err != nil {
 
 		return nil, err

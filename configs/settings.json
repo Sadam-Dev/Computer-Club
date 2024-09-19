@@ -27,7 +27,7 @@
     "host": "localhost",
     "port": "5432",
     "user": "postgres",
-    "database": "computer_club_db",
+    "database": "computer_club",
     "ssl_mode": "disable"
   }
 }

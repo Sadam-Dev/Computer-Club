@@ -436,3 +436,753 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2024/09/14 - 07:56:10 | 200 |     15.5312ms |       127.0.0.1 | GET      "/users/1"
 [GIN] 2024/09/14 - 07:56:36 | 200 |       777.5µs |       127.0.0.1 | GET      "/computers/available"
 [GIN] 2024/09/14 - 07:56:48 | 200 |       777.1µs |       127.0.0.1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:31:16 | 200 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:31:16 | 200 |      3.1949ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:31:16 | 200 |         569µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:31:16 | 200 |      4.3687ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:31:16 | 200 |       501.2µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:31:16 | 200 |       630.3µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2024/09/14 - 13:32:05 | 404 |            0s |             ::1 | GET      "/swagger/dd.html"
+[GIN] 2024/09/14 - 13:32:05 | 404 |            0s |             ::1 | GET      "/favicon.ico"
+[GIN] 2024/09/14 - 13:32:56 | 200 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:32:56 | 304 |     15.0559ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:32:56 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:32:56 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:32:57 | 200 |       818.5µs |             ::1 | GET      "/swagger/doc.json"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:33:49 | 200 |       534.5µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:33:49 | 200 |       4.089ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:33:49 | 200 |       520.2µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:33:49 | 200 |      3.1209ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:33:49 | 500 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:33:49 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:34:02 | 200 |         282µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:34:03 | 200 |       352.1µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:34:03 | 200 |         607µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:34:03 | 200 |       371.7µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:34:03 | 200 |       554.7µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:34:03 | 200 |      4.8608ms |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2024/09/14 - 13:34:24 | 200 |       556.2µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:34:24 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:34:24 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:34:24 | 304 |       512.7µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:34:25 | 200 |         101µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:34:25 | 304 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2024/09/14 - 13:34:27 | 200 |     12.3827ms |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:34:27 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:34:27 | 304 |      7.0293ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:34:27 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:34:27 | 200 |      1.1242ms |             ::1 | GET      "/swagger/doc.json"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:40:45 | 200 |       354.3µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:40:45 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:40:45 | 200 |       989.2µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:40:45 | 200 |       520.2µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:40:45 | 200 |       879.2µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:40:45 | 200 |       645.4µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:41:55 | 200 |       201.3µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:41:55 | 200 |       1.004ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:41:55 | 200 |      1.5202ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:41:55 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:41:55 | 200 |         782µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:41:55 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:42:54 | 200 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:42:54 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:42:54 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:42:54 | 200 |       503.1µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:42:54 | 200 |       324.2µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:42:54 | 200 |       184.2µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 13:43:42 | 200 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:43:42 | 200 |       313.4µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:43:42 | 200 |       501.9µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:43:42 | 200 |      1.0161ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:43:42 | 200 |       796.4µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:43:42 | 200 |       324.9µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2024/09/14 - 13:58:26 | 200 |       223.7µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 13:58:26 | 304 |         196µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 13:58:26 | 304 |       739.8µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 13:58:26 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 13:58:26 | 200 |       560.2µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 13:58:26 | 304 |       744.6µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:27:33 | 200 |      8.9147ms |             ::1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:38:10 | 200 |       8.012ms |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:38:50 | 200 |       801.4µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:39:17 | 200 |        95.8µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:39:21 | 200 |       761.7µs |             ::1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:41:46 | 200 |      9.6346ms |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:44:56 | 500 |       837.3µs |             ::1 | POST     "/bookings"
+[GIN] 2024/09/14 - 14:45:06 | 200 |     13.1797ms |             ::1 | POST     "/bookings"
+[GIN] 2024/09/14 - 14:45:52 | 200 |      1.0159ms |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:46:02 | 200 |       627.4µs |             ::1 | GET      "/computers/available"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking/computers --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:49:55 | 200 |      8.2148ms |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 14:50:38 | 404 |            0s |             ::1 | GET      "/booking/computers"
+[GIN] 2024/09/14 - 14:50:53 | 404 |            0s |             ::1 | GET      "/booking/computers"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:51:33 | 200 |      7.6602ms |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 14:53:40 | 200 |      7.9033ms |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:04:56 | 200 |      7.9021ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:06:23 | 200 |      9.4821ms |             ::1 | POST     "/bookings"
+[GIN] 2024/09/14 - 15:06:35 | 200 |       503.1µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:07:37 | 200 |            0s |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 15:07:54 | 200 |       501.3µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:08:18 | 200 |       509.7µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:09:42 | 200 |         502µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:12:25 | 200 |       502.7µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/14 - 15:12:41 | 200 |       503.5µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:17:07 | 200 |      8.5046ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:17:57 | 200 |       503.9µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:21:48 | 200 |      8.0244ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:22:54 | 200 |       501.9µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:26:34 | 200 |      8.4985ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:27:43 | 200 |       501.8µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:33:59 | 200 |       7.342ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:35:38 | 200 |       501.4µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:35:55 | 200 |      9.5507ms |             ::1 | POST     "/bookings"
+[GIN] 2024/09/14 - 15:36:03 | 200 |       365.5µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:36:52 | 200 |       662.2µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:38:40 | 200 |      8.7956ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:38:42 | 200 |      1.6488ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:38:43 | 200 |       685.1µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:39:20 | 200 |         9.9ms |             ::1 | POST     "/bookings"
+[GIN] 2024/09/14 - 15:39:25 | 200 |      1.1384ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:39:54 | 200 |       930.7µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:39:55 | 200 |       648.5µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:41:52 | 200 |        87.5µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:41:56 | 200 |      1.3299ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:41:58 | 200 |       662.8µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:00 | 200 |      1.2389ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:04 | 200 |       744.2µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:42:42 | 200 |      8.4406ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:43 | 200 |      1.7503ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:43 | 200 |      1.5226ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:44 | 200 |       1.494ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:45 | 200 |      1.4293ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:45 | 200 |      1.2328ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:46 | 200 |       668.3µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:46 | 200 |       450.6µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:47 | 200 |       687.6µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:42:47 | 200 |       528.2µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:43:31 | 200 |      1.1302ms |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/14 - 15:43:34 | 200 |       720.4µs |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 15:51:05 | 200 |      7.8625ms |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 16:18:17 | 200 |      8.0788ms |             ::1 | GET      "/computers/booking"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/14 - 16:20:48 | 200 |       364.2µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2024/09/14 - 16:20:48 | 200 |      1.7677ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2024/09/14 - 16:20:48 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2024/09/14 - 16:20:48 | 200 |      1.0652ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2024/09/14 - 16:20:49 | 200 |      6.3994ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2024/09/14 - 16:20:49 | 200 |       586.4µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /welcome                  --> ComputerClub/pkg/controllers.WelcomeToTheClub (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> ComputerClub/pkg/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> ComputerClub/pkg/controllers.SignIn (3 handlers)
+[GIN-debug] GET    /users                    --> ComputerClub/pkg/controllers.GetAllUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> ComputerClub/pkg/controllers.GetUserByID (3 handlers)
+[GIN-debug] POST   /users                    --> ComputerClub/pkg/controllers.CreateUser (3 handlers)
+[GIN-debug] PUT    /users/:id                --> ComputerClub/pkg/controllers.UpdateUserByID (3 handlers)
+[GIN-debug] DELETE /users/:id                --> ComputerClub/pkg/controllers.DeleteUserByID (3 handlers)
+[GIN-debug] GET    /computers/available      --> ComputerClub/pkg/controllers.GetAvailableComputers (3 handlers)
+[GIN-debug] GET    /computers/booking        --> ComputerClub/pkg/controllers.GetBookingComputers (3 handlers)
+[GIN-debug] POST   /computers                --> ComputerClub/pkg/controllers.CreateComputer (3 handlers)
+[GIN-debug] POST   /bookings                 --> ComputerClub/pkg/controllers.CreateBooking (3 handlers)
+[GIN] 2024/09/18 - 18:20:32 | 200 |       633.7µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/18 - 18:20:56 | 200 |       309.5µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/18 - 18:21:42 | 200 |        77.5µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/18 - 18:21:56 | 200 |       503.6µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/18 - 18:28:15 | 201 |      5.3061ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:22 | 201 |      7.1963ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:29 | 201 |      7.3258ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:33 | 201 |        9.17ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:39 | 201 |      7.6855ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:43 | 201 |      1.5389ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:48 | 201 |      7.4536ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:28:54 | 201 |      7.6204ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:29:01 | 201 |      7.0156ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:29:07 | 201 |      7.2389ms |             ::1 | POST     "/computers"
+[GIN] 2024/09/18 - 18:34:58 | 200 |       557.5µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/18 - 18:35:51 | 200 |      5.5667ms |             ::1 | POST     "/bookings"
+[GIN] 2024/09/18 - 18:36:18 | 200 |       504.1µs |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/18 - 18:36:33 | 200 |            0s |             ::1 | GET      "/computers/booking"
+[GIN] 2024/09/18 - 18:37:01 | 200 |         488µs |             ::1 | GET      "/computers/available"
+[GIN] 2024/09/18 - 18:39:43 | 200 |       254.1µs |             ::1 | GET      "/computers/available"

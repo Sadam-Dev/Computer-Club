@@ -1,0 +1,83 @@
+basePath: /
+definitions:
+  models.Computer:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_available:
+        type: boolean
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+host: localhost:8181
+info:
+  contact: {}
+  description: API Server for ComputerClub Application
+  title: ComputerClub API
+  version: "1.02"
+paths:
+  /computers:
+    post:
+      consumes:
+      - application/json
+      description: Создает запись о новом компьютере в базе данных
+      parameters:
+      - description: Данные компьютера
+        in: body
+        name: computer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Computer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Computer created successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Создать новый компьютер
+      tags:
+      - computers
+  /computers/available:
+    get:
+      description: Возвращает список всех доступных (свободных) компьютеров
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Список доступных компьютеров
+          schema:
+            items:
+              $ref: '#/definitions/models.Computer'
+            type: array
+        "400":
+          description: error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Получить список доступных компьютеров
+      tags:
+      - computers
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

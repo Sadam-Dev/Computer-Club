@@ -16,9 +16,12 @@ func IsComputerAvailable(computerID uint, startTime, endTime time.Time) (bool, e
 		return true, nil
 	}
 	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return true, nil
+		}
 		return false, err
 	}
-	return false, nil
+	return false, nil // иф внутри ифа
 }
 
 func CreateBooking(booking *models.Booking) error {

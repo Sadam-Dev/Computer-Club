@@ -2,15 +2,18 @@ package controllers
 
 import (
 	"ComputerClub/configs"
-	"fmt"
+	_ "ComputerClub/docs"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	"github.com/swaggo/gin-swagger"
 	"net/http"
 )
 
-func RunRoutes() error {
+func InitRoutes() *gin.Engine {
 	router := gin.Default()
 	gin.SetMode(configs.AppSettings.AppParams.GinMode)
 
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/welcome", WelcomeToTheClub)
 
 	auth := router.Group("/auth")
@@ -31,6 +34,7 @@ func RunRoutes() error {
 	computerG := router.Group("/computers")
 	{
 		computerG.GET("/available", GetAvailableComputers)
+		computerG.GET("/booking", GetBookingComputers)
 		computerG.POST("", CreateComputer)
 	}
 
@@ -39,13 +43,7 @@ func RunRoutes() error {
 		bookingG.POST("", CreateBooking)
 	}
 
-	err := router.Run(fmt.Sprintf("%s:%s", configs.AppSettings.AppParams.ServerURL, configs.AppSettings.AppParams.PortRun))
-
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return router
 }
 
 func WelcomeToTheClub(c *gin.Context) {

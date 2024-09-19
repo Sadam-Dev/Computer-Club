@@ -9,5 +9,5 @@ type Computer struct {
 	IsAvailable bool      `json:"is_available" gorm:"default:true"`
 	CreatedAt   time.Time `json:"created_at" gorm:"autoCreateTime"`
 	UpdatedAt   time.Time `json:"updated_at" gorm:"autoUpdateTime"`
-	DeletedAt   time.Time `json:"deleted_at" gorm:"index"`
+	DeletedAt   time.Time `json:"-" gorm:"index"`
 }

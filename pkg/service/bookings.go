@@ -72,6 +72,7 @@ func UpdateComputerAvailabilityAfterBooking() error {
 }
 
 func StartUpdatingComputerAvailability(interval time.Duration) {
+	fmt.Println("StartUpdatingComputerAvailability")
 	go func() {
 		for {
 			err := UpdateComputerAvailabilityAfterBooking()
