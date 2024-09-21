@@ -7,6 +7,16 @@ import (
 	"net/http"
 )
 
+type ErrorResponse struct {
+	Error string `json:"error"`
+}
+
+func newErrorResponse(message string) ErrorResponse {
+	return ErrorResponse{
+		Error: message,
+	}
+}
+
 func handleError(c *gin.Context, err error) {
 	if errors.Is(err, errs.ErrUsernameUniquenessFailed) ||
 		errors.Is(err, errs.ErrIncorrectUsernameOrPassword) ||

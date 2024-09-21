@@ -7,7 +7,12 @@ func Migrate() error {
 		models.User{},
 		models.Role{},
 		models.Computer{},
-		models.Booking{})
+		models.Booking{},
+		models.Role{},
+		models.UserRole{},
+		models.PriceList{},
+		models.HourlyPackage{},
+		models.Category{})
 	if err != nil {
 		return err
 	}

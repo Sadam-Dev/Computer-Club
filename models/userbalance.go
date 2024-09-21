@@ -2,9 +2,10 @@ package models
 
 import "time"
 
-type Role struct {
+type UserBalance struct {
 	ID        uint      `json:"id" gorm:"primaryKey"`
-	Code      string    `json:"code" gorm:"unique; not null"`
+	UserID    uint      `json:"user_id" gorm:"not null"`
+	Amount    float64   `json:"amount" gorm:"not null"`
 	CreatedAt time.Time `json:"created_at" gorm:"autoCreateTime"`
 	UpdatedAt time.Time `json:"updated_at" gorm:"autoUpdateTime"`
 }
