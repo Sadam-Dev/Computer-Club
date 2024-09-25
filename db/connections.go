@@ -13,13 +13,14 @@ var dbConn *gorm.DB
 
 func ConnectToDB() error {
 
-	connStr := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=%s password=%s",
+	connStr := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=%s password=%s timezone=%s",
 		configs.AppSettings.PostgresParams.Host,
 		configs.AppSettings.PostgresParams.Port,
 		configs.AppSettings.PostgresParams.User,
 		configs.AppSettings.PostgresParams.Database,
 		configs.AppSettings.PostgresParams.SSLMode,
 		os.Getenv("DB_PASSWORD"),
+		configs.AppSettings.PostgresParams.TimeZone,
 	)
 
 	db, err := gorm.Open(postgres.Open(connStr), &gorm.Config{})

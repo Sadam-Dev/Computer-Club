@@ -29,7 +29,7 @@ func SignUp(c *gin.Context) {
 		return
 	}
 
-	logger.Info.Printf("Attempt to create user: %+v", user)
+	logger.Info.Printf("Attempt to create user with username: %s", user.Username)
 
 	err := service.CreateUser(user)
 	if err != nil {

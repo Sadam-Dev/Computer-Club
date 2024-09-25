@@ -1,5 +1,6 @@
 {
-  "auth": {
+  "auth_params": {
+    "jwt_secret_key": "ItsSecretKey",
     "jwt_ttl_minutes": 60
   },
 
@@ -28,6 +29,7 @@
     "port": "5432",
     "user": "postgres",
     "database": "computer_club",
-    "ssl_mode": "disable"
+    "ssl_mode": "disable",
+    "timezone": "Asia/Dushanbe"
   }
 }

@@ -11,4 +11,5 @@ var (
 	ErrRecordNotFound              = errors.New("ErrRecordNotFound")
 	ErrSomethingWentWrong          = errors.New("ErrSomethingWentWrong")
 	ErrCategoryNameExists          = errors.New("category name already exists")
+	ErrUnauthorized                = errors.New("ErrUnauthorized")
 )

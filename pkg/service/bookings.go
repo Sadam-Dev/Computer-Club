@@ -42,48 +42,14 @@ import (
 //	return booking, nil
 //}
 //
-//func UpdateComputerAvailabilityAfterBooking() error {
-//	currentTime := time.Now()
-//
-//	completedBookings, err := repository.GetCompletedBookings(currentTime)
-//	if err != nil {
-//		logger.Error.Printf("Ошибка получения завершенных бронирований: %v\n", err)
-//		return err
-//	}
-//
-//	for _, booking := range completedBookings {
-//		err = repository.UpdateComputerAvailability(booking.ComputerID, true)
-//		if err != nil {
-//			logger.Error.Printf("Ошибка обновления статуса компьютера: %v\n", err)
-//			return err
-//		}
-//
-//		err = repository.MarkBookingAsCompleted(booking.ID)
-//		if err != nil {
-//			logger.Error.Printf("Ошибка обновления статуса бронирования: %v\n", err)
-//			return err
-//		}
-//	}
-//
-//	return nil
-//}
-//
-//func StartUpdatingComputerAvailability(interval time.Duration) {
-//	go func() {
-//		for {
-//			err := UpdateComputerAvailabilityAfterBooking()
-//			if err != nil {
-//				fmt.Println("Ошибка при обновлении доступности компьютеров:", err)
-//			}
-//
-//			time.Sleep(interval)
-//		}
-//	}()
-//}
 
 func CreateBooking(booking models.Booking) error {
-	// Дополнительная логика проверки (например, доступность компьютера)
-	return repository.CreateBooking(booking)
+	err := repository.CreateBooking(booking)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func GetBookingByID(id uint) (models.Booking, error) {

@@ -5,7 +5,7 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/pkg/controllers"
-	"ComputerClub/server"
+	"ComputerClub/server" // Импортируем пакет service для вызова CompleteBookings
 	"context"
 	"errors"
 	"fmt"
@@ -27,7 +27,6 @@ import (
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
-
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {

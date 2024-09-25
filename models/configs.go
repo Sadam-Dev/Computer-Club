@@ -33,6 +33,7 @@ type PostgresParams struct {
 	Port     string `json:"port"`
 	Database string `json:"database"`
 	SSLMode  string `json:"ssl_mode"`
+	TimeZone string `json:"timezone"`
 }
 
 type AuthParams struct {

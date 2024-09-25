@@ -10,8 +10,8 @@ import (
 
 type CustomClaims struct {
 	UserID   uint   `json:"user_id"`
-	Role     string `json:"role"`
 	Username string `json:"username"`
+	RoleCode string `json:"role"`
 	jwt.StandardClaims
 }
 
@@ -19,7 +19,7 @@ func GenerateToken(userID uint, username string, role string) (string, error) {
 	claims := CustomClaims{
 		UserID:   userID,
 		Username: username,
-		Role:     role,
+		RoleCode: role,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Minute * time.Duration(configs.AppSettings.AuthParams.JwtTtlMinutes)).Unix(),
 			Issuer:    configs.AppSettings.AppParams.ServerName,

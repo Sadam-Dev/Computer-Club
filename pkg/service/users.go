@@ -9,20 +9,21 @@ import (
 )
 
 func CreateUser(user models.User) error {
-	userFromDB, err := repository.GetUserByUsername(user.Username)
-	if err != nil && !errors.Is(err, errs.ErrRecordNotFound) {
+	// Проверяем уникальность username
+	if existingUser, err := repository.GetUserByUsername(user.Username); err != nil && !errors.Is(err, errs.ErrRecordNotFound) {
 		return err
-	}
-
-	if userFromDB.ID > 0 {
+	} else if existingUser.ID > 0 {
 		return errs.ErrUsernameUniquenessFailed
 	}
 
-	user.Role.Code = "user"
+	// Назначаем стандартную роль пользователю (например, "user")
+	user.RoleID = 1
 
+	// Хэшируем пароль перед сохранением
 	user.Password = utils.GenerateHash(user.Password)
 
-	err = repository.CreateUser(user)
+	// Создаем пользователя и баланс
+	err := repository.CreateUser(user)
 	if err != nil {
 		return err
 	}

@@ -17,6 +17,7 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
+	// Создание пользователя через сервис
 	err := service.CreateUser(user)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{

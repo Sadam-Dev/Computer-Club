@@ -5,6 +5,7 @@ import (
 	"ComputerClub/pkg/repository"
 	"ComputerClub/utils"
 	"errors"
+	"fmt"
 )
 
 func SignIn(username, password string) (accessToken string, err error) {
@@ -19,10 +20,17 @@ func SignIn(username, password string) (accessToken string, err error) {
 		return "", err
 	}
 
+	role := user.Role.Code
+
+	// Логируем роль для отладки
+	fmt.Printf("Extracted role for user %s: %s\n", user.Username, role)
+
 	accessToken, err = GenerateToken(user.ID, user.Username, user.Role.Code)
 	if err != nil {
 		return "", err
 	}
+
+	fmt.Printf("Generated token for user %s with role %s: %s\n", user.Username, user.Role.Code, accessToken)
 
 	return accessToken, nil
 }

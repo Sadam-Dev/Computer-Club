@@ -9,23 +9,6 @@ import (
 	"strconv"
 )
 
-//func CreateBooking(c *gin.Context) {
-//	var booking models.Booking
-//
-//	if err := c.ShouldBindJSON(&booking); err != nil {
-//		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-//		return
-//	}
-//
-//	createdBooking, err := service.CreateBooking(booking.UserID, booking.ComputerID, booking.StartTime, booking.EndTime)
-//	if err != nil {
-//		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-//		return
-//	}
-//
-//	c.JSON(http.StatusOK, gin.H{"message": "Бронирование успешно создано", "booking": createdBooking})
-//}
-
 func CreateBooking(c *gin.Context) {
 	var booking models.Booking
 	if err := c.BindJSON(&booking); err != nil {
@@ -33,12 +16,20 @@ func CreateBooking(c *gin.Context) {
 		return
 	}
 
+	userID := c.GetUint(userIDCtx)
+	if userID == 0 {
+		handleError(c, errs.ErrUnauthorized)
+	}
+
+	booking.UserID = userID
+
+	// Логика создания бронирования
 	if err := service.CreateBooking(booking); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{"message": "booking created successfully"})
+	c.JSON(http.StatusCreated, gin.H{"message": "Бронирование создано успешно", "booking": booking})
 }
 
 func GetBookingByID(c *gin.Context) {

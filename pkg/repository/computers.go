@@ -77,18 +77,3 @@ func DeleteComputer(id uint) error {
 	}
 	return nil
 }
-
-func UpdateComputerAvailability(computerID uint, isAvailable bool) error {
-	err := db.GetDBConn().
-		Model(&models.Computer{}).
-		Where("id = ?", computerID).
-		Update("is_available", isAvailable).
-		Error
-
-	if err != nil {
-		logger.Error.Printf("[repository.UpdateComputerAvailability] Error updating computer availability: %v\n", err)
-		return translateError(err)
-	}
-
-	return nil
-}

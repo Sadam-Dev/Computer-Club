@@ -9,10 +9,11 @@ func Migrate() error {
 		models.Computer{},
 		models.Booking{},
 		models.Role{},
-		models.UserRole{},
 		models.PriceList{},
 		models.HourlyPackage{},
-		models.Category{})
+		models.Category{},
+		models.UserBalance{},
+		models.Transaction{})
 	if err != nil {
 		return err
 	}

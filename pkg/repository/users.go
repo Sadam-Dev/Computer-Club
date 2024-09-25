@@ -17,12 +17,23 @@ func getUserByID(id uint) (models.User, error) {
 	return user, nil
 }
 
-func CreateUser(user models.User) (err error) {
-	if err = db.GetDBConn().Create(&user).Error; err != nil {
-		logger.Error.Printf("[repository.CreateUser] erroe creating user: %v\n", err)
+func CreateUser(user models.User) error {
+	// Создание пользователя
+	if err := db.GetDBConn().Create(&user).Error; err != nil {
+		logger.Error.Printf("[repository.CreateUser] Error creating user: %v\n", err)
 		return translateError(err)
-
 	}
+
+	// Создание записи баланса для пользователя
+	userBalance := models.UserBalance{
+		UserID:  user.ID,
+		Balance: 0,
+	}
+	if err := db.GetDBConn().Create(&userBalance).Error; err != nil {
+		logger.Error.Printf("[repository.CreateUser] Error creating user balance: %v\n", err)
+		return translateError(err)
+	}
+
 	return nil
 }
 

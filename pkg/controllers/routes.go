@@ -24,16 +24,16 @@ func InitRoutes() *gin.Engine {
 
 	apiG := router.Group("/api", checkUserAuthentication)
 
-	userG := router.Group("/users")
+	userG := apiG.Group("/users")
 	{
-		userG.GET("/", GetAllUsers)
-		userG.GET("/:id", GetUserByID)
-		userG.POST("", CreateUser)
-		userG.PUT("/:id", UpdateUserByID)
-		userG.DELETE("/:id", DeleteUserByID)
+		userG.GET("/", checkUserRole("admin", "super_admin"), GetAllUsers)          // Доступно только для администраторов и выше
+		userG.GET("/:id", checkUserRole("admin", "super_admin"), GetUserByID)       // Доступно только для администраторов и выше
+		userG.POST("", checkUserRole("user", "admin", "super_admin"), CreateUser)   // Доступно только для администраторов
+		userG.PUT("/:id", checkUserRole("admin", "super_admin"), UpdateUserByID)    // Доступно только для администраторов
+		userG.DELETE("/:id", checkUserRole("admin", "super_admin"), DeleteUserByID) // Доступно только для администраторов
 	}
 
-	categoryG := router.Group("/categories")
+	categoryG := apiG.Group("/categories")
 	{
 		categoryG.GET("/", GetAllCategories)
 		categoryG.GET("/:id", GetCategoryByID)
@@ -42,9 +42,9 @@ func InitRoutes() *gin.Engine {
 		categoryG.DELETE("/:id", DeleteCategory)
 	}
 
-	computerG := router.Group("/computers")
+	computerG := apiG.Group("/computers")
 	{
-		computerG.GET("/available", GetAvailableComputers)
+		computerG.GET("/available", checkUserRole("admin", "super_admin"), GetAvailableComputers)
 		computerG.POST("/", CreateComputer)
 		computerG.GET("/:id", GetComputerByID)
 		computerG.GET("", GetAllComputers)
@@ -52,7 +52,7 @@ func InitRoutes() *gin.Engine {
 		computerG.DELETE("/:id", DeleteComputer)
 	}
 
-	bookingG := router.Group("/bookings")
+	bookingG := apiG.Group("/bookings")
 	{
 		bookingG.POST("/", CreateBooking)
 		bookingG.GET("/:id", GetBookingByID)
@@ -60,7 +60,7 @@ func InitRoutes() *gin.Engine {
 		bookingG.PUT("/:id", UpdateBooking)
 		bookingG.DELETE("/:id", DeleteBooking)
 	}
-	priceListG := router.Group("/price-list")
+	priceListG := apiG.Group("/price-list")
 	{
 		priceListG.POST("/", CreatePriceList)
 		priceListG.GET("/", GetAllPriceLists)
@@ -69,13 +69,21 @@ func InitRoutes() *gin.Engine {
 		priceListG.DELETE("/:id", DeletePriceList)
 	}
 
-	hourlyPackageG := router.Group("/hourly-packages")
+	hourlyPackageG := apiG.Group("/hourly-packages")
 	{
 		hourlyPackageG.POST("/", CreateHourlyPackage)
 		hourlyPackageG.GET("/", GetAllHourlyPackages)
 		hourlyPackageG.GET("/:id", GetHourlyPackageByID)
 		hourlyPackageG.PUT("/:id", UpdateHourlyPackage)
 		hourlyPackageG.DELETE("/:id", DeleteHourlyPackage)
+	}
+
+	// Добавляем новые маршруты для создания и удаления
+	apiG.POST("/balance/add-funds", TopUpBalanceByUsername)
+
+	usersBalanceG := apiG.Group("/user-balance")
+	{
+		usersBalanceG.GET("/:username", GetUserBalance)
 	}
 
 	return router
