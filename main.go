@@ -5,6 +5,7 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/pkg/controllers"
+	"ComputerClub/pkg/repository"
 	"ComputerClub/pkg/service"
 	"ComputerClub/server"
 	"context"
@@ -17,7 +18,7 @@ import (
 )
 
 // @title Computer Club API
-// @version 1.0
+// @version 1.0.2
 // @description API Server for Computer Club Application
 
 // @host localhost:8181
@@ -29,24 +30,24 @@ import (
 func main() {
 	// Загрузка переменных окружения
 	if err := godotenv.Load(); err != nil {
-		logger.Error.Fatalf("Error loading the .env file: %s", err)
+		panic(err)
 	}
 	fmt.Println("Environment variables loaded successfully!")
 
 	// Чтение настроек из файла конфигурации
 	if err := configs.ReadSettings(); err != nil {
-		logger.Error.Fatalf("Error reading settings: %s", err)
+		panic(err)
 	}
+
 	fmt.Println("Configuration loaded successfully!")
 
-	// Загружаем временную зону "Asia/Dushanbe"
 	_, err := time.LoadLocation(configs.AppSettings.PostgresParams.TimeZone)
 	if err != nil {
 		fmt.Println("Ошибка при загрузке временной зоны:", err)
 		return
 	}
 
-	// Инициализация логгера
+	//Инициализация логгера
 	if err := logger.Init(); err != nil {
 		logger.Error.Fatalf("Error initializing logger: %s", err)
 	}
@@ -73,6 +74,8 @@ func main() {
 	mainServer := new(server.Server)
 
 	service.StartBookingCleanupJob()
+
+	go repository.StartBookingUpdateJob()
 
 	// Запуск сервера в горутине
 	go func() {

@@ -18,7 +18,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param input body models.SwagUser true "User Information"
-// @Success 201 {string} string "User created successfully!!!"
+// @Success 201 {string} DefaultResponse "User created successfully!!!"
 // @Failure 400 {object} ErrorResponse "Invalid input"
 // @Failure 403 {object} ErrorResponse "Permission denied"
 // @Failure 500 {object} ErrorResponse "Server error"
@@ -76,8 +76,8 @@ func GetAllUsers(c *gin.Context) {
 // @Produce json
 // @Param id path int true "User ID"
 // @Success 200 {object} models.User
-// @Failure 400 {object} gin.H{"error": "invalid id"}
-// @Failure 500 {object} gin.H{"error": "failed to retrieve user"}
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
 // @Router /users/{id} [get]
 func GetUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
@@ -109,9 +109,9 @@ func GetUserByID(c *gin.Context) {
 // @Produce json
 // @Param id path int true "User ID"
 // @Param user body models.User true "User object"
-// @Success 200 {object} gin.H{"message": "user updated successfully", "user": models.User}
-// @Failure 400 {object} gin.H{"error": "invalid user id"}
-// @Failure 500 {object} gin.H{"error": "failed to update user"}
+// @Success 200 {object} DefaultResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
 // @Router /users/{id} [put]
 func UpdateUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
@@ -152,9 +152,9 @@ func UpdateUserByID(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param id path int true "User ID"
-// @Success 200 {object} gin.H{"message": "user deleted successfully", "user": models.User}
-// @Failure 400 {object} gin.H{"error": "invalid user id"}
-// @Failure 500 {object} gin.H{"error": "failed to delete user"}
+// @Success 200 {object} DefaultResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
 // @Router /users/{id} [delete]
 func DeleteUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))

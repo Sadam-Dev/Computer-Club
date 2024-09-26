@@ -17,7 +17,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param input body models.SwagUser true "account info"
-// @Success 200 {object} defaultResponse
+// @Success 200 {object} DefaultResponse
 // @Failure 400 404 {object} ErrorResponse
 // @Failure 500 {object} ErrorResponse
 // @Failure default {object} ErrorResponse
