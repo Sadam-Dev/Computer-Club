@@ -39,32 +39,53 @@ func checkUserAuthentication(c *gin.Context) {
 
 	c.Set(userIDCtx, claims.UserID)
 	c.Set(userRoleCtx, claims.RoleCode)
+
+	fmt.Printf("User ID: %d, Role Code: %s\n", claims.UserID, claims.RoleCode)
+
 	c.Next()
 }
 
-func checkUserRole(allowedRoles ...string) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		role, exists := c.Get(userRoleCtx)
-		if !exists {
-			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "role not found"})
-			return
-		}
+const (
+	roleUser       = "user"
+	roleAdmin      = "admin"
+	roleSuperAdmin = "superAdmin"
+)
 
-		userRole, ok := role.(string)
-		if !ok {
-			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "invalid role type"})
-			return
-		}
-
-		fmt.Printf("User role: %s\n", userRole)
-
-		for _, allowedRole := range allowedRoles {
-			if userRole == allowedRole {
-				c.Next()
-				return
-			}
-		}
-
-		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "forbidden"})
+// Middleware для проверки, что пользователь является администратором
+func adminRequired(c *gin.Context) {
+	userRole, exists := c.Get(userRoleCtx)
+	fmt.Printf("User Role: %v\n", userRole)
+	if !exists || (userRole != roleAdmin && userRole != roleSuperAdmin) {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "You don't have access to this resource"})
+		return
 	}
+	c.Next()
+}
+
+// Middleware для проверки, что пользователь является суперадминистратором
+func superAdminRequired(c *gin.Context) {
+	userRole, exists := c.Get(userRoleCtx)
+	if !exists || userRole != roleSuperAdmin {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "You don't have access to this resource"})
+		return
+	}
+	c.Next()
+}
+
+func adminOrSuperAdminRequired(c *gin.Context) {
+	userRole, exists := c.Get(userRoleCtx)
+	if !exists || (userRole != roleAdmin && userRole != roleSuperAdmin) {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "You don't have access to this resource"})
+		return
+	}
+	c.Next()
+}
+
+func userRequired(c *gin.Context) {
+	userRole, exists := c.Get(userRoleCtx)
+	if !exists || userRole != roleUser {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "You don't have access to this resource"})
+		return
+	}
+	c.Next()
 }

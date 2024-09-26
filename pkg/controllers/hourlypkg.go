@@ -72,3 +72,23 @@ func DeleteHourlyPackage(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"message": "hourly package deleted successfully"})
 }
+
+func PurchaseHourlyPackage(c *gin.Context) {
+	var request struct {
+		Username  string `json:"username"`
+		PackageID uint   `json:"package_id"`
+	}
+
+	if err := c.BindJSON(&request); err != nil {
+		handleError(c, err)
+		return
+	}
+
+	transaction, err := service.PurchaseHourlyPackage(request.Username, request.PackageID)
+	if err != nil {
+		handleError(c, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, transaction)
+}

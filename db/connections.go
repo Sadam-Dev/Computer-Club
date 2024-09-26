@@ -35,6 +35,20 @@ func ConnectToDB() error {
 	return nil
 }
 
+func CloseDBConn() error {
+	sqlDB, err := dbConn.DB()
+	if err != nil {
+		return err
+	}
+
+	err = sqlDB.Close()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func GetDBConn() *gorm.DB {
 	return dbConn
 }

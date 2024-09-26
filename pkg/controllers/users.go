@@ -10,25 +10,37 @@ import (
 	"strconv"
 )
 
+// CreateUser
+// @Summary Register a new user
+// @Tags users
+// @Description Register a new user (only Admin can do this)
+// @ID create-user
+// @Accept json
+// @Produce json
+// @Param input body models.SwagUser true "User Information"
+// @Success 201 {string} string "User created successfully!!!"
+// @Failure 400 {object} ErrorResponse "Invalid input"
+// @Failure 403 {object} ErrorResponse "Permission denied"
+// @Failure 500 {object} ErrorResponse "Server error"
+// @Router /users [post]
+// @Security ApiKeyAuth
 func CreateUser(c *gin.Context) {
 	var user models.User
 	if err := c.BindJSON(&user); err != nil {
+		logger.Error.Printf("[CreateUser] Invalid input: %v, IP: [%s]\n", err, c.ClientIP())
 		handleError(c, errs.ErrValidationFailed)
 		return
 	}
 
-	// Создание пользователя через сервис
-	err := service.CreateUser(user)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": err.Error(),
-		})
+	logger.Info.Printf("[CreateUser] IP: [%s] attempting to create user: %s\n", c.ClientIP(), user.Username)
+
+	if err := service.CreateUser(user); err != nil {
+		logger.Error.Printf("[CreateUser] Error creating user: %v, IP: [%s]\n", err, c.ClientIP())
+		handleError(c, err)
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{
-		"message": "user created successfully",
-	})
+	c.JSON(http.StatusCreated, gin.H{"message": "User created successfully!!!"})
 }
 
 // GetAllUsers godoc
@@ -56,6 +68,17 @@ func GetAllUsers(c *gin.Context) {
 	})
 }
 
+// GetUserByID godoc
+// @Summary Retrieve a user by ID
+// @Description Get user details by user ID
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param id path int true "User ID"
+// @Success 200 {object} models.User
+// @Failure 400 {object} gin.H{"error": "invalid id"}
+// @Failure 500 {object} gin.H{"error": "failed to retrieve user"}
+// @Router /users/{id} [get]
 func GetUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -68,8 +91,9 @@ func GetUserByID(c *gin.Context) {
 
 	user, err := service.GetUserByID(uint(id))
 	if err != nil {
+		logger.Error.Printf("[controllers.GetUserByID] Error retrieving user: %s\n", err)
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": err.Error(),
+			"error": "failed to retrieve user",
 		})
 		return
 	}
@@ -77,6 +101,18 @@ func GetUserByID(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
+// UpdateUserByID godoc
+// @Summary Update a user by ID
+// @Description Update user details by user ID
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param id path int true "User ID"
+// @Param user body models.User true "User object"
+// @Success 200 {object} gin.H{"message": "user updated successfully", "user": models.User}
+// @Failure 400 {object} gin.H{"error": "invalid user id"}
+// @Failure 500 {object} gin.H{"error": "failed to update user"}
+// @Router /users/{id} [put]
 func UpdateUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -89,14 +125,16 @@ func UpdateUserByID(c *gin.Context) {
 
 	var updateUser models.User
 	if err = c.BindJSON(&updateUser); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		logger.Error.Printf("[controllers.UpdateUserByID] Error binding JSON: %s\n", err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid request payload"})
 		return
 	}
 
 	user, err := service.UpdateUserByID(uint(id), updateUser)
 	if err != nil {
+		logger.Error.Printf("[controllers.UpdateUserByID] Error updating user: %s\n", err)
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": err.Error(),
+			"error": "failed to update user",
 		})
 		return
 	}
@@ -107,6 +145,17 @@ func UpdateUserByID(c *gin.Context) {
 	})
 }
 
+// DeleteUserByID godoc
+// @Summary Delete a user by ID
+// @Description Delete a user by user ID
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param id path int true "User ID"
+// @Success 200 {object} gin.H{"message": "user deleted successfully", "user": models.User}
+// @Failure 400 {object} gin.H{"error": "invalid user id"}
+// @Failure 500 {object} gin.H{"error": "failed to delete user"}
+// @Router /users/{id} [delete]
 func DeleteUserByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -118,11 +167,11 @@ func DeleteUserByID(c *gin.Context) {
 	user, err := service.DeleteUserByID(uint(id))
 	if err != nil {
 		logger.Error.Printf("[controllers.DeleteUserByID] Failed to delete user: %s\n", err)
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to delete user"})
 		return
 	}
 
-	logger.Error.Printf("Client with IP [%s] successfully deleted\n", c.ClientIP())
+	logger.Info.Printf("User with ID [%d] successfully deleted by client with IP [%s]\n", id, c.ClientIP())
 	c.JSON(http.StatusOK, gin.H{
 		"message": "user deleted successfully",
 		"user":    user,

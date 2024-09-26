@@ -10,7 +10,7 @@ type User struct {
 	PhoneNumber string    `json:"phone_number" gorm:"unique; not null"`
 	Email       string    `json:"email" gorm:"unique; not null"`
 	IsDeleted   bool      `json:"is_deleted" gorm:"default:false"`
-	IsBlocked   bool      `json:"is_blocked" gorm:"default:false"`
+	IsBlocked   bool      `json:"-" gorm:"default:false"`
 	CreatedAt   time.Time `json:"created_at" gorm:"autoCreateTime"`
 	UpdatedAt   time.Time `json:"updated_at" gorm:"autoUpdateTime"`
 	RoleID      uint      `json:"role_id"`

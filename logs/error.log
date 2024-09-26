@@ -37,3 +37,34 @@ ERROR: 2024/09/25 11:32:32 users.go:57: [repository.GetUserByUsername] Error get
 ERROR: 2024/09/25 11:32:32 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uni_users_phone_number" (SQLSTATE 23505)
 ERROR: 2024/09/25 11:32:32 auth.go:36: Error creating user: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uni_users_phone_number" (SQLSTATE 23505)
 ERROR: 2024/09/25 11:32:45 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:54:11 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:54:11 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:54:11 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:54:47 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:54:47 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:54:47 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:55:40 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:55:40 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:55:40 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:56:27 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 09:56:35 users.go:67: [repository.GetUserByUsernameAndPassword] Error getting user by Username and Password: record not found
+ERROR: 2024/09/26 09:56:41 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:56:41 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:56:41 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:57:54 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 09:59:05 users.go:57: [repository.GetUserByUsername] Error getting user by Username: record not found
+ERROR: 2024/09/26 09:59:05 users.go:23: [repository.CreateUser] Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 09:59:05 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 11:31:17 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 11:31:33 users.go:63: [repository.GetUserByUsername] error getting user by username: record not found
+ERROR: 2024/09/26 11:31:33 users.go:24: [repository.CreateUser] error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 11:31:33 users.go:29: [service.CreateUser] error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 11:31:33 auth.go:36: Error creating user: ОШИБКА: INSERT или UPDATE в таблице "users" нарушает ограничение внешнего ключа "fk_users_role" (SQLSTATE 23503)
+ERROR: 2024/09/26 11:35:34 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 11:35:43 users.go:63: [repository.GetUserByUsername] error getting user by username: record not found
+ERROR: 2024/09/26 11:59:18 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 13:42:06 main.go:60: Failed to run database migrations: ОШИБКА: столбец "deleted_at" имеет тип timestamp with time zone, но тип выражения по умолчанию boolean (SQLSTATE 42804)
+ERROR: 2024/09/26 13:57:16 users.go:14: [repository.getUserByID] error getting user by ID: 2
+ERROR: 2024/09/26 13:57:16 users.go:50: [service.GetUserByID] error getting user by ID: record not found
+ERROR: 2024/09/26 13:57:16 users.go:94: [controllers.GetUserByID] Error retrieving user: record not found
+ERROR: 2024/09/26 14:21:47 main.go:70: Error starting HTTP server: http: Server closed

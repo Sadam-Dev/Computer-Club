@@ -26,30 +26,31 @@ func InitRoutes() *gin.Engine {
 
 	userG := apiG.Group("/users")
 	{
-		userG.GET("/", checkUserRole("admin", "super_admin"), GetAllUsers)          // Доступно только для администраторов и выше
-		userG.GET("/:id", checkUserRole("admin", "super_admin"), GetUserByID)       // Доступно только для администраторов и выше
-		userG.POST("", checkUserRole("user", "admin", "super_admin"), CreateUser)   // Доступно только для администраторов
-		userG.PUT("/:id", checkUserRole("admin", "super_admin"), UpdateUserByID)    // Доступно только для администраторов
-		userG.DELETE("/:id", checkUserRole("admin", "super_admin"), DeleteUserByID) // Доступно только для администраторов
+		userG.GET("/", adminOrSuperAdminRequired, GetAllUsers)
+		userG.GET("/:id", adminOrSuperAdminRequired, GetUserByID)
+		userG.POST("", adminOrSuperAdminRequired, CreateUser)
+		userG.PUT("/:id", adminOrSuperAdminRequired, UpdateUserByID)
+		userG.DELETE("/:id", superAdminRequired, DeleteUserByID)
 	}
 
 	categoryG := apiG.Group("/categories")
 	{
 		categoryG.GET("/", GetAllCategories)
-		categoryG.GET("/:id", GetCategoryByID)
-		categoryG.POST("", CreateCategory)
-		categoryG.PUT("/:id", UpdateCategory)
-		categoryG.DELETE("/:id", DeleteCategory)
+		categoryG.GET("/:id", adminOrSuperAdminRequired, GetCategoryByID)
+		categoryG.POST("", adminOrSuperAdminRequired, CreateCategory)
+		categoryG.PUT("/:id", superAdminRequired, UpdateCategory)
+		categoryG.DELETE("/:id", superAdminRequired, DeleteCategory)
 	}
 
 	computerG := apiG.Group("/computers")
 	{
-		computerG.GET("/available", checkUserRole("admin", "super_admin"), GetAvailableComputers)
-		computerG.POST("/", CreateComputer)
-		computerG.GET("/:id", GetComputerByID)
-		computerG.GET("", GetAllComputers)
-		computerG.PUT("/:id", UpdateComputer)
-		computerG.DELETE("/:id", DeleteComputer)
+		computerG.GET("/available", GetAvailableComputers)
+		computerG.GET("/booked", GetBookedComputersHandler)
+		computerG.POST("/", superAdminRequired, CreateComputer)
+		computerG.GET("/:id", adminOrSuperAdminRequired, GetComputerByID)
+		computerG.GET("", adminOrSuperAdminRequired, GetAllComputers)
+		computerG.PUT("/:id", superAdminRequired, UpdateComputer)
+		computerG.DELETE("/:id", superAdminRequired, DeleteComputer)
 	}
 
 	bookingG := apiG.Group("/bookings")
@@ -84,6 +85,18 @@ func InitRoutes() *gin.Engine {
 	usersBalanceG := apiG.Group("/user-balance")
 	{
 		usersBalanceG.GET("/:username", GetUserBalance)
+	}
+	// Роут для покупки пакета времени
+	apiG.POST("/api/purchase/hourly-package", PurchaseHourlyPackage)
+
+	// Роут для покупки времени по цене за час
+	apiG.POST("/api/purchase/time", PurchaseTime)
+
+	roleG := apiG.Group("/role")
+	{
+		roleG.GET("/api/roles/:id", GetRole)
+		roleG.POST("/api/roles", CreateRole)
+		roleG.GET("/api/roles", GetAllRoles)
 	}
 
 	return router

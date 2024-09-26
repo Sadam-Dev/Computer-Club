@@ -19,6 +19,17 @@ func GetAvailableComputers(startTime, endTime time.Time) ([]models.Computer, err
 	return computers, nil
 }
 
+// GetBookedComputers - логика получения всех забронированных компьютеров
+func GetBookedComputers(startTime, endTime time.Time) ([]models.Computer, error) {
+	// Вызов функции из repository для получения забронированных ПК
+	bookedComputers, err := repository.GetBookedComputers(startTime, endTime)
+	if err != nil {
+		return nil, err
+	}
+
+	return bookedComputers, nil
+}
+
 func GetComputerByID(id uint) (models.Computer, error) {
 	return repository.GetComputerByID(id)
 }

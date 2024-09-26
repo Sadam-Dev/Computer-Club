@@ -4,6 +4,7 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/models"
+	"time"
 )
 
 //func IsComputerAvailable(computerID uint, startTime, endTime time.Time) (bool, error) {
@@ -120,6 +121,35 @@ func UpdateBooking(booking models.Booking) error {
 func DeleteBooking(id uint) error {
 	if err := db.GetDBConn().Delete(&models.Booking{}, id).Error; err != nil {
 		logger.Error.Printf("[repository.DeleteBooking] error deleting booking: %v\n", err)
+		return translateError(err)
+	}
+	return nil
+}
+
+// Получить все активные бронирования, которые завершились
+func GetExpiredBookings() ([]models.Booking, error) {
+	var bookings []models.Booking
+	if err := db.GetDBConn().Where("end_time <= ? AND is_completed = ?", time.Now(), false).Find(&bookings).Error; err != nil {
+		return nil, translateError(err)
+	}
+	return bookings, nil
+}
+
+// Обновить статус бронирования
+func CompleteBooking(bookingID uint) error {
+	if err := db.GetDBConn().Model(&models.Booking{}).
+		Where("id = ?", bookingID).
+		Update("is_completed", true).Error; err != nil {
+		return translateError(err)
+	}
+	return nil
+}
+
+// Освобождение компьютера
+func SetComputerAvailable(computerID uint) error {
+	if err := db.GetDBConn().Model(&models.Computer{}).
+		Where("id = ?", computerID).
+		Update("is_available", true).Error; err != nil {
 		return translateError(err)
 	}
 	return nil

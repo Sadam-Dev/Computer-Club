@@ -82,3 +82,25 @@ func DeletePriceList(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"message": "price list deleted successfully"})
 }
+
+func PurchaseTime(c *gin.Context) {
+	var request struct {
+		Username     string `json:"username"`
+		CategoryID   uint   `json:"category_id"`
+		ComputerType string `json:"computer_type"`
+		Hours        int    `json:"hours"`
+	}
+
+	if err := c.BindJSON(&request); err != nil {
+		handleError(c, err)
+		return
+	}
+
+	transaction, err := service.PurchaseTime(request.Username, request.CategoryID, request.ComputerType, request.Hours)
+	if err != nil {
+		handleError(c, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, transaction)
+}

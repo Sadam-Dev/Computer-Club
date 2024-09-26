@@ -16,34 +16,27 @@ func CreateComputer(computer models.Computer) error {
 }
 
 func GetAvailableComputers(startTime, endTime time.Time) ([]models.Computer, error) {
-	var computers []models.Computer
-	if err := db.GetDBConn().Find(&computers).Error; err != nil {
-		return nil, translateError(err)
-	}
-
-	var bookedComputerIDs []uint
-	if err := db.GetDBConn().Model(&models.Booking{}).
-		Select("computer_id").
-		Where("start_time < ? AND end_time > ?", endTime, startTime).
-		Find(&bookedComputerIDs).Error; err != nil {
-		return nil, translateError(err)
-	}
-
 	var availableComputers []models.Computer
-	for _, computer := range computers {
-		isBooked := false
-		for _, id := range bookedComputerIDs {
-			if computer.ID == id {
-				isBooked = true
-				break
-			}
-		}
-		if !isBooked {
-			availableComputers = append(availableComputers, computer)
-		}
+	if err := db.GetDBConn().Where("id NOT IN (?)",
+		db.GetDBConn().Model(&models.Booking{}).
+			Select("computer_id").
+			Where("start_time < ? AND end_time > ?", endTime, startTime)).Find(&availableComputers).Error; err != nil {
+		return nil, translateError(err)
 	}
-
 	return availableComputers, nil
+
+}
+
+func GetBookedComputers(startTime, endTime time.Time) ([]models.Computer, error) {
+	var bookedComputers []models.Computer
+	if err := db.GetDBConn().Model(&models.Booking{}).
+		Select("computers.*").
+		Joins("JOIN computers ON computers.id = bookings.computer_id").
+		Where("bookings.start_time < ? AND bookings.end_time > ?", endTime, startTime).
+		Find(&bookedComputers).Error; err != nil {
+		return nil, err
+	}
+	return bookedComputers, nil
 }
 
 func GetComputerByID(id uint) (models.Computer, error) {

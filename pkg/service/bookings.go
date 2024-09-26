@@ -1,8 +1,10 @@
 package service
 
 import (
+	"ComputerClub/logger"
 	"ComputerClub/models"
 	"ComputerClub/pkg/repository"
+	"github.com/robfig/cron/v3"
 )
 
 //func CreateBooking(userID, computerID uint, startTime, endTime time.Time) (models.Booking, error) {
@@ -66,4 +68,38 @@ func UpdateBooking(booking models.Booking) error {
 
 func DeleteBooking(id uint) error {
 	return repository.DeleteBooking(id)
+}
+
+func ProcessExpiredBookings() error {
+	bookings, err := repository.GetExpiredBookings()
+	if err != nil {
+		return err
+	}
+
+	for _, booking := range bookings {
+		// Завершение бронирования
+		if err = repository.CompleteBooking(booking.ID); err != nil {
+			return err
+		}
+
+		// Освобождение ПК
+		if err = repository.SetComputerAvailable(booking.ComputerID); err != nil {
+			return err
+		}
+
+		logger.Info.Printf("Booking %d completed and computer %d set as available\n", booking.ID, booking.ComputerID)
+	}
+
+	return nil
+}
+
+func StartBookingCleanupJob() {
+	c := cron.New()
+	c.AddFunc("@every 1m", func() {
+		err := ProcessExpiredBookings()
+		if err != nil {
+			logger.Error.Printf("Error processing expired bookings: %v", err)
+		}
+	})
+	c.Start()
 }

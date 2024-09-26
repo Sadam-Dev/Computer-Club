@@ -47,3 +47,12 @@ func DeletePriceList(id uint) error {
 	}
 	return nil
 }
+
+func GetPriceByCategoryAndType(categoryID uint, computerType string) (models.PriceList, error) {
+	var price models.PriceList
+	if err := db.GetDBConn().Where("category_id = ? AND computer_type = ?", categoryID, computerType).First(&price).Error; err != nil {
+		logger.Error.Printf("[repository.GetPriceByCategoryAndType] Error getting price for category ID: %d and computer type: %s\n", categoryID, computerType)
+		return price, translateError(err)
+	}
+	return price, nil
+}

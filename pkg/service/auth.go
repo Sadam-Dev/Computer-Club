@@ -20,9 +20,12 @@ func SignIn(username, password string) (accessToken string, err error) {
 		return "", err
 	}
 
-	role := user.Role.Code
+	// Убедитесь, что роль пользователя корректна
+	if user.Role.Code == "" {
+		return "", fmt.Errorf("user role not found")
+	}
 
-	// Логируем роль для отладки
+	role := user.Role.Code
 	fmt.Printf("Extracted role for user %s: %s\n", user.Username, role)
 
 	accessToken, err = GenerateToken(user.ID, user.Username, user.Role.Code)

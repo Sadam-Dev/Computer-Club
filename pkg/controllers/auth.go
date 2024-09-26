@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"ComputerClub/errs"
 	"ComputerClub/logger"
 	"ComputerClub/models"
 	"ComputerClub/pkg/service"
@@ -56,13 +57,15 @@ func SignUp(c *gin.Context) {
 // @Router /auth/sign-in [post]
 func SignIn(c *gin.Context) {
 	var user models.User
-	if err := c.BindJSON(&user); err != nil {
-		handleError(c, err)
+	if err := c.ShouldBindJSON(&user); err != nil {
+		logger.Error.Printf("[SignIn] Invalid input: %v\n", err)
+		handleError(c, errs.ErrValidationFailed)
 		return
 	}
 
 	accessToken, err := service.SignIn(user.Username, user.Password)
 	if err != nil {
+		logger.Error.Printf("[SignIn] Authentication failed: %v\n", err)
 		handleError(c, err)
 		return
 	}

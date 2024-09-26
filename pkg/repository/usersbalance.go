@@ -5,6 +5,7 @@ import (
 	"ComputerClub/errs"
 	"ComputerClub/logger"
 	"ComputerClub/models"
+	"fmt"
 )
 
 // Получение баланса по username
@@ -28,6 +29,11 @@ func GetUserBalanceByUsername(username string) (models.UserBalance, error) {
 
 // Обновление баланса по username
 func UpdateUserBalanceByUsername(username string, amount float64) (models.UserBalance, error) {
+	// Проверка на некорректные значения
+	if amount <= 0 {
+		return models.UserBalance{}, fmt.Errorf("amount must be greater than zero")
+	}
+
 	// Получаем пользователя по имени пользователя
 	var user models.User
 	err := db.GetDBConn().Where("username = ?", username).First(&user).Error
@@ -51,6 +57,10 @@ func UpdateUserBalanceByUsername(username string, amount float64) (models.UserBa
 			return userBalance, translateError(err)
 		}
 	} else if err == nil {
+		// Проверка на достаточный баланс
+		if userBalance.Balance+amount < 0 {
+			return userBalance, fmt.Errorf("insufficient funds, balance cannot be negative")
+		}
 		// Если запись найдена, обновляем баланс
 		userBalance.Balance += amount
 		err = db.GetDBConn().Save(&userBalance).Error

@@ -74,6 +74,38 @@ func GetComputerByID(c *gin.Context) {
 	c.JSON(http.StatusOK, computer)
 }
 
+func GetBookedComputersHandler(c *gin.Context) {
+	startTimeStr := c.Query("start_time")
+	endTimeStr := c.Query("end_time")
+
+	if len(startTimeStr) == 10 {
+		startTimeStr += "T00:00:00Z"
+	}
+	if len(endTimeStr) == 10 {
+		endTimeStr += "T23:59:59Z"
+	}
+
+	startTime, err := time.Parse(time.RFC3339, startTimeStr)
+	if err != nil {
+		handleError(c, errs.ErrValidationFailed)
+		return
+	}
+
+	endTime, err := time.Parse(time.RFC3339, endTimeStr)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid end_time format"})
+		return
+	}
+	// Вызов функции из слоя service
+	bookedComputers, err := service.GetBookedComputers(startTime, endTime)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, bookedComputers)
+}
+
 func GetAllComputers(c *gin.Context) {
 	computers, err := service.GetAllComputers()
 	if err != nil {
