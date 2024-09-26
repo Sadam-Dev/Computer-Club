@@ -68,3 +68,5 @@ ERROR: 2024/09/26 13:57:16 users.go:14: [repository.getUserByID] error getting u
 ERROR: 2024/09/26 13:57:16 users.go:50: [service.GetUserByID] error getting user by ID: record not found
 ERROR: 2024/09/26 13:57:16 users.go:94: [controllers.GetUserByID] Error retrieving user: record not found
 ERROR: 2024/09/26 14:21:47 main.go:70: Error starting HTTP server: http: Server closed
+ERROR: 2024/09/26 17:54:46 auth.go:37: Error creating user: username must be unique
+ERROR: 2024/09/26 17:55:14 main.go:73: Error starting HTTP server: http: Server closed

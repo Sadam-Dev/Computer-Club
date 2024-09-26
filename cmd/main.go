@@ -39,6 +39,13 @@ func main() {
 	}
 	fmt.Println("Configuration loaded successfully!")
 
+	// Загружаем временную зону "Asia/Dushanbe"
+	_, err := time.LoadLocation(configs.AppSettings.PostgresParams.TimeZone)
+	if err != nil {
+		fmt.Println("Ошибка при загрузке временной зоны:", err)
+		return
+	}
+
 	// Инициализация логгера
 	if err := logger.Init(); err != nil {
 		logger.Error.Fatalf("Error initializing logger: %s", err)

@@ -32,7 +32,7 @@ func GetBookedComputers(startTime, endTime time.Time) ([]models.Computer, error)
 	if err := db.GetDBConn().Model(&models.Booking{}).
 		Select("computers.*").
 		Joins("JOIN computers ON computers.id = bookings.computer_id").
-		Where("bookings.start_time < ? AND bookings.end_time > ?", endTime, startTime).
+		Where("bookings.start_time < ? AND bookings.end_time > ? AND is_completed = true", endTime, startTime).
 		Find(&bookedComputers).Error; err != nil {
 		return nil, err
 	}
