@@ -1,11 +1,11 @@
 package controllers
 
-type defaultResponse struct {
+type DefaultResponse struct {
 	Message string `json:"message"`
 }
 
-func newDefaultResponse(message string) defaultResponse {
-	return defaultResponse{
+func newDefaultResponse(message string) DefaultResponse {
+	return DefaultResponse{
 		Message: message,
 	}
 }
