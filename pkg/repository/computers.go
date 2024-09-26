@@ -4,6 +4,7 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/models"
+	"fmt"
 	"time"
 )
 
@@ -69,4 +70,54 @@ func DeleteComputer(id uint) error {
 		return translateError(err)
 	}
 	return nil
+}
+
+// UpdateAvailabilityComputers Функция обновления доступности компьютеров
+func UpdateAvailabilityComputers(currentTime time.Time) error {
+	bookings, err := GetAllBookings()
+	if err != nil {
+		return err
+	}
+
+	for _, booking := range bookings {
+		if booking.EndTime.Before(currentTime) {
+			booking.IsCompleted = true
+
+			err = UpdateBooking(booking)
+			if err != nil {
+				return err
+			}
+
+			computer, err := GetComputerByID(booking.ComputerID)
+			if err != nil {
+				return err
+			}
+
+			computer.IsAvailable = true
+			err = UpdateComputer(computer)
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+// StartBookingUpdateJob Функция, запускающая UpdateAvailabilityComputers каждые 10 минут
+func StartBookingUpdateJob() {
+	ticker := time.NewTicker(10 * time.Minute)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case t := <-ticker.C:
+			err := UpdateAvailabilityComputers(t)
+			if err != nil {
+				fmt.Printf("Error updating availability: %v\n", err)
+			} else {
+				fmt.Println("Successfully updated availability at", t)
+			}
+		}
+	}
 }

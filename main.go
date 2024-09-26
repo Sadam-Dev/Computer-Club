@@ -5,6 +5,7 @@ import (
 	"ComputerClub/db"
 	"ComputerClub/logger"
 	"ComputerClub/pkg/controllers"
+	"ComputerClub/pkg/repository"
 	"ComputerClub/pkg/service"
 	"ComputerClub/server"
 	"context"
@@ -40,8 +41,6 @@ func main() {
 
 	fmt.Println("Configuration loaded successfully!")
 
-	// Загружаем временную зону "Asia/Dushanbe"
-	fmt.Println(configs.AppSettings.PostgresParams.TimeZone)
 	_, err := time.LoadLocation(configs.AppSettings.PostgresParams.TimeZone)
 	if err != nil {
 		fmt.Println("Ошибка при загрузке временной зоны:", err)
@@ -75,6 +74,8 @@ func main() {
 	mainServer := new(server.Server)
 
 	service.StartBookingCleanupJob()
+
+	go repository.StartBookingUpdateJob()
 
 	// Запуск сервера в горутине
 	go func() {
