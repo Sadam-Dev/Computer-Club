@@ -11,8 +11,8 @@ func CreateComputer(computer models.Computer) error {
 	return repository.CreateComputer(computer)
 }
 
-func GetAvailableComputers(startTime, endTime time.Time) ([]models.Computer, error) {
-	computers, err := repository.GetAvailableComputers(startTime, endTime)
+func GetAvailableComputers() ([]models.Computer, error) {
+	computers, err := repository.GetAvailableComputers()
 	if err != nil {
 		return nil, errs.ErrValidationFailed
 	}

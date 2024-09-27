@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"ComputerClub/errs"
-	"ComputerClub/logger"
 	"ComputerClub/models"
 	"ComputerClub/pkg/service"
 	"github.com/gin-gonic/gin"
@@ -27,37 +26,10 @@ func CreateComputer(c *gin.Context) {
 }
 
 func GetAvailableComputers(c *gin.Context) {
-	startTimeStr := c.Query("start_time")
-	endTimeStr := c.Query("end_time")
 
-	if len(startTimeStr) == 10 {
-		startTimeStr += "T00:00:00Z"
-	}
-	if len(endTimeStr) == 10 {
-		endTimeStr += "T23:59:59Z"
-	}
-
-	startTime, err := time.Parse(time.RFC3339, startTimeStr)
-	if err != nil {
-		handleError(c, errs.ErrValidationFailed)
-		return
-	}
-
-	endTime, err := time.Parse(time.RFC3339, endTimeStr)
-	if err != nil {
-		logger.Error.Printf("Invalid end_time: %v\n", err)
-		handleError(c, errs.ErrValidationFailed)
-		return
-	}
-
-	availableComputers, err := service.GetAvailableComputers(startTime, endTime)
+	availableComputers, err := service.GetAvailableComputers()
 	if err != nil {
 		handleError(c, err)
-		return
-	}
-
-	if startTime.After(endTime) {
-		handleError(c, errs.ErrValidationFailed)
 		return
 	}
 
