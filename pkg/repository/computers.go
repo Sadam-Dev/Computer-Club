@@ -25,16 +25,22 @@ func GetAvailableComputers() ([]models.Computer, error) {
 
 }
 
-func GetBookedComputers(startTime, endTime time.Time) ([]models.Computer, error) {
-	var bookedComputers []models.Computer
-	if err := db.GetDBConn().Model(&models.Booking{}).
-		Select("computers.*").
-		Joins("JOIN computers ON computers.id = bookings.computer_id").
-		Where("bookings.start_time < ? AND bookings.end_time > ? AND is_completed = true", endTime, startTime).
-		Find(&bookedComputers).Error; err != nil {
+func GetBookedComputers() ([]models.Computer, error) {
+	var computers []models.Computer
+
+	// Find computers that are booked (where bookings are not completed and current time is between start and end time)
+	err := db.GetDBConn().Model(&models.Computer{}).
+		Joins("JOIN bookings ON bookings.computer_id = computers.id").
+		Where("bookings.is_completed = ?", false).
+		Where("bookings.start_time <= ? AND bookings.end_time >= ?", time.Now(), time.Now()).
+		Find(&computers).Error
+
+	if err != nil {
+		logger.Error.Printf("[service.GetBookedComputers] Error retrieving booked computers: %v", err)
 		return nil, err
 	}
-	return bookedComputers, nil
+
+	return computers, nil
 }
 
 func GetComputerByID(id uint) (models.Computer, error) {

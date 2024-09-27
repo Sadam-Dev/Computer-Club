@@ -4,7 +4,6 @@ import (
 	"ComputerClub/errs"
 	"ComputerClub/models"
 	"ComputerClub/pkg/repository"
-	"time"
 )
 
 func CreateComputer(computer models.Computer) error {
@@ -20,9 +19,9 @@ func GetAvailableComputers() ([]models.Computer, error) {
 }
 
 // GetBookedComputers - логика получения всех забронированных компьютеров
-func GetBookedComputers(startTime, endTime time.Time) ([]models.Computer, error) {
+func GetBookedComputers() ([]models.Computer, error) {
 	// Вызов функции из repository для получения забронированных ПК
-	bookedComputers, err := repository.GetBookedComputers(startTime, endTime)
+	bookedComputers, err := repository.GetBookedComputers()
 	if err != nil {
 		return nil, err
 	}
