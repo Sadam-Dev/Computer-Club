@@ -87,10 +87,22 @@ import (
 //}
 
 func CreateBooking(booking models.Booking) error {
-	if err := db.GetDBConn().Create(&booking).Error; err != nil {
+	tx := db.GetDBConn().Begin()
+	if err := tx.Create(&booking).Error; err != nil {
 		logger.Error.Printf("[repository.CreateBooking] error creating booking: %v\n", err)
+		tx.Rollback()
 		return translateError(err)
 	}
+
+	err := tx.Model(&models.Computer{}).Where("id = ?", booking.ComputerID).Update("is_available", false).Error
+	if err != nil {
+		logger.Error.Printf("[repository.CreateBooking] error updating computer availability status: %v\n", err)
+		tx.Rollback()
+		return translateError(err)
+	}
+
+	tx.Commit()
+
 	return nil
 }
 
