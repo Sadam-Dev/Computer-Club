@@ -45,7 +45,7 @@ func InitRoutes() *gin.Engine {
 	computerG := apiG.Group("/computers")
 	{
 		computerG.GET("/available", GetAvailableComputers)
-		computerG.GET("/booked", GetBookedComputersHandler)
+		computerG.GET("/booked", GetBookedComputers)
 		computerG.POST("/", superAdminRequired, CreateComputer)
 		computerG.GET("/:id", adminOrSuperAdminRequired, GetComputerByID)
 		computerG.GET("", adminOrSuperAdminRequired, GetAllComputers)
@@ -56,48 +56,51 @@ func InitRoutes() *gin.Engine {
 	bookingG := apiG.Group("/bookings")
 	{
 		bookingG.POST("/", CreateBooking)
-		bookingG.GET("/:id", GetBookingByID)
-		bookingG.GET("/", GetAllBookings)
-		bookingG.PUT("/:id", UpdateBooking)
-		bookingG.DELETE("/:id", DeleteBooking)
+		bookingG.GET("/:id", adminOrSuperAdminRequired, GetBookingByID)
+		bookingG.GET("/", adminOrSuperAdminRequired, GetAllBookings)
+		bookingG.PUT("/:id", adminOrSuperAdminRequired, UpdateBooking)
+		bookingG.DELETE("/:id", superAdminRequired, DeleteBooking)
 	}
 	priceListG := apiG.Group("/price-list")
 	{
-		priceListG.POST("/", CreatePriceList)
+		priceListG.POST("/", superAdminRequired, CreatePriceList)
 		priceListG.GET("/", GetAllPriceLists)
 		priceListG.GET("/:id", GetPriceListByID)
-		priceListG.PUT("/:id", UpdatePriceList)
-		priceListG.DELETE("/:id", DeletePriceList)
+		priceListG.PUT("/:id", superAdminRequired, UpdatePriceList)
+		priceListG.DELETE("/:id", superAdminRequired, DeletePriceList)
 	}
 
 	hourlyPackageG := apiG.Group("/hourly-packages")
 	{
-		hourlyPackageG.POST("/", CreateHourlyPackage)
+		hourlyPackageG.POST("/", superAdminRequired, CreateHourlyPackage)
 		hourlyPackageG.GET("/", GetAllHourlyPackages)
 		hourlyPackageG.GET("/:id", GetHourlyPackageByID)
-		hourlyPackageG.PUT("/:id", UpdateHourlyPackage)
-		hourlyPackageG.DELETE("/:id", DeleteHourlyPackage)
+		hourlyPackageG.PUT("/:id", superAdminRequired, UpdateHourlyPackage)
+		hourlyPackageG.DELETE("/:id", superAdminRequired, DeleteHourlyPackage)
 	}
 
-	// Добавляем новые маршруты для создания и удаления
-	apiG.POST("/balance/add-funds", TopUpBalanceByUsername)
+	roleG := apiG.Group("/roles")
+	{
+		roleG.GET("/:id", superAdminRequired, GetRoleByID)
+		roleG.POST("/", superAdminRequired, CreateRole)
+		roleG.GET("/", superAdminRequired, GetAllRoles)
+	}
 
 	usersBalanceG := apiG.Group("/user-balance")
 	{
-		usersBalanceG.GET("/:username", GetUserBalance)
+		usersBalanceG.GET("/:username", adminOrSuperAdminRequired, GetUserBalance)
+		usersBalanceG.POST("/add-funds", adminOrSuperAdminRequired, TopUpBalanceByUsername)
+		usersBalanceG.DELETE("/:username", superAdminRequired, DeleteUserBalance)
+		usersBalanceG.POST("/buy/package/:package_id", BuyTimeWithPackage)
+		usersBalanceG.POST("/buy/hour/:category_id", BuyTimePerHour)
+
 	}
+
 	// Роут для покупки пакета времени
-	apiG.POST("/api/purchase/hourly-package", PurchaseHourlyPackage)
+	apiG.POST("/purchase/hourly-package", PurchaseHourlyPackage)
 
 	// Роут для покупки времени по цене за час
-	apiG.POST("/api/purchase/time", PurchaseTime)
-
-	roleG := apiG.Group("/role")
-	{
-		roleG.GET("/api/roles/:id", GetRole)
-		roleG.POST("/api/roles", CreateRole)
-		roleG.GET("/api/roles", GetAllRoles)
-	}
+	apiG.POST("/purchase/time", PurchaseTime)
 
 	return router
 }

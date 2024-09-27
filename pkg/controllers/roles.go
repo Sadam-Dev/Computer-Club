@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-func GetRole(c *gin.Context) {
+func GetRoleByID(c *gin.Context) {
 	roleIDStr := c.Param("id")                          // Получаем параметр как строку
 	roleID, err := strconv.ParseUint(roleIDStr, 10, 32) // Преобразуем в uint
 	if err != nil {

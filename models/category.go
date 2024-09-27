@@ -10,3 +10,8 @@ type Category struct {
 	UpdatedAt   time.Time `json:"updated_at" gorm:"autoUpdateTime"`
 	DeletedAt   time.Time `json:"deleted_at" gorm:"index"`
 }
+
+type SwagCategory struct {
+	Name        string `json:"name"`        // Название категории
+	Description string `json:"description"` // Описание категории
+}

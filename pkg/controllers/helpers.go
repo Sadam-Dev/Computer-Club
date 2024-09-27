@@ -8,8 +8,8 @@ import (
 	"net/http"
 )
 
-// handleError обрабатывает все ошибки, возникающие в процессе выполнения...
-// Добавляет статус код к ним и сразу возвращает клиенту...
+// handleError обрабатывает все ошибки, возникающие в процессе выполнения
+// Добавляет статус код к ним и сразу возвращает клиенту
 func handleError(c *gin.Context, err error) {
 	switch {
 	// Ошибки аутентификации
@@ -84,9 +84,8 @@ func handleError(c *gin.Context, err error) {
 	}
 }
 
-// ErrorResponse представляет структуру для обработки сообщений об ошибках
 type ErrorResponse struct {
-	Error string `json:"error"` // Описание возникшей ошибки...
+	Error string `json:"error"`
 }
 
 func newErrorResponse(message string) ErrorResponse {

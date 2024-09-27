@@ -69,10 +69,7 @@ func main() {
 	}
 	fmt.Println("Database migrated successfully!")
 
-	// Инициализация сервера
 	mainServer := new(server.Server)
-
-	//service.StartBookingCleanupJob()
 
 	go repository.StartBookingUpdateJob()
 

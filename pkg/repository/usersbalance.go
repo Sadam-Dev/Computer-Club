@@ -8,7 +8,6 @@ import (
 	"fmt"
 )
 
-// Получение баланса по username
 func GetUserBalanceByUsername(username string) (models.UserBalance, error) {
 	var user models.User
 	err := db.GetDBConn().Where("username = ?", username).First(&user).Error
@@ -27,14 +26,11 @@ func GetUserBalanceByUsername(username string) (models.UserBalance, error) {
 	return userBalance, nil
 }
 
-// Обновление баланса по username
 func UpdateUserBalanceByUsername(username string, amount float64) (models.UserBalance, error) {
-	// Проверка на некорректные значения
 	if amount <= 0 {
 		return models.UserBalance{}, fmt.Errorf("amount must be greater than zero")
 	}
 
-	// Получаем пользователя по имени пользователя
 	var user models.User
 	err := db.GetDBConn().Where("username = ?", username).First(&user).Error
 	if err != nil {
@@ -42,7 +38,6 @@ func UpdateUserBalanceByUsername(username string, amount float64) (models.UserBa
 		return models.UserBalance{}, translateError(err)
 	}
 
-	// Проверяем, есть ли запись в UserBalance
 	var userBalance models.UserBalance
 	err = db.GetDBConn().Where("user_id = ?", user.ID).First(&userBalance).Error
 	if err != nil && err == errs.ErrRecordNotFound {
@@ -75,4 +70,24 @@ func UpdateUserBalanceByUsername(username string, amount float64) (models.UserBa
 	}
 
 	return userBalance, nil
+}
+
+func DeleteUserBalance(userID uint) error {
+	if err := db.GetDBConn().Where("user_id = ?", userID).Delete(&models.UserBalance{}).Error; err != nil {
+		return translateError(err)
+	}
+
+	return nil
+}
+
+func GetUserBalanceByUserID(userID uint) (models.UserBalance, error) {
+	var balance models.UserBalance
+	if err := db.GetDBConn().Where("user_id = ?", userID).First(&balance).Error; err != nil {
+		return models.UserBalance{}, translateError(err)
+	}
+	return balance, nil
+}
+
+func UpdateUserBalance(userID uint, newBalance float64) error {
+	return db.GetDBConn().Model(&models.UserBalance{}).Where("user_id = ?", userID).Update("balance", newBalance).Error
 }
