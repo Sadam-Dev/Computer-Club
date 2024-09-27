@@ -16,12 +16,9 @@ func CreateComputer(computer models.Computer) error {
 	return nil
 }
 
-func GetAvailableComputers(startTime, endTime time.Time) ([]models.Computer, error) {
+func GetAvailableComputers() ([]models.Computer, error) {
 	var availableComputers []models.Computer
-	if err := db.GetDBConn().Where("id NOT IN (?)",
-		db.GetDBConn().Model(&models.Booking{}).
-			Select("computer_id").
-			Where("start_time < ? AND end_time > ?", endTime, startTime)).Find(&availableComputers).Error; err != nil {
+	if err := db.GetDBConn().Model(&models.Computer{}).Where("is_available").Find(&availableComputers).Error; err != nil {
 		return nil, translateError(err)
 	}
 	return availableComputers, nil
