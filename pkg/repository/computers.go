@@ -106,7 +106,7 @@ func UpdateAvailabilityComputers(currentTime time.Time) error {
 
 // StartBookingUpdateJob Функция, запускающая UpdateAvailabilityComputers каждые 10 минут
 func StartBookingUpdateJob() {
-	ticker := time.NewTicker(10 * time.Minute)
+	ticker := time.NewTicker(1 * time.Minute)
 	defer ticker.Stop()
 
 	for {

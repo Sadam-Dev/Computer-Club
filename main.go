@@ -6,7 +6,6 @@ import (
 	"ComputerClub/logger"
 	"ComputerClub/pkg/controllers"
 	"ComputerClub/pkg/repository"
-	"ComputerClub/pkg/service"
 	"ComputerClub/server"
 	"context"
 	"fmt"
@@ -73,7 +72,7 @@ func main() {
 	// Инициализация сервера
 	mainServer := new(server.Server)
 
-	service.StartBookingCleanupJob()
+	//service.StartBookingCleanupJob()
 
 	go repository.StartBookingUpdateJob()
 
